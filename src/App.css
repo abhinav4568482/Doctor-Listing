@@ -1,0 +1,353 @@
+:root {
+  --primary-color: #005eb8;
+  --primary-hover: #004a92;
+  --background-color: #f5f7fa;
+  --white: #ffffff;
+  --text-dark: #1e293b;
+  --text-gray: #64748b;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Global Styles */
+body {
+  background-color: var(--background-color);
+  font-family: 'Inter', 'Roboto', sans-serif;
+  color: var(--text-dark);
+}
+
+.app {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header & Search Bar */
+.header {
+  background-color: var(--primary-color);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.search-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px 12px 40px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-gray);
+}
+
+/* Main Layout */
+.main-content {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Sidebar */
+.filters-panel {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 2rem;
+}
+
+.filter-section {
+  margin-bottom: 2rem;
+}
+
+.filter-section:last-child {
+  margin-bottom: 0;
+}
+
+.filter-header {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Doctor Cards Container */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Doctor Card */
+.doctor-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s ease;
+}
+
+.doctor-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Left section with image and info */
+.doctor-left {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.doctor-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: var(--background-color);
+  flex-shrink: 0;
+  border: 1px solid var(--border-color);
+}
+
+.doctor-image[src="placeholder.png"] {
+  background-color: #f1f5f9;
+  border: 1px dashed var(--border-color);
+}
+
+.doctor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.doctor-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.doctor-specialties {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.doctor-experience,
+.doctor-location {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.consultation-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  background-color: #e2e8f0;
+  color: var(--text-gray);
+}
+
+/* Right section with fees and button */
+.doctor-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+  min-width: 150px;
+}
+
+.fee-container {
+  text-align: right;
+}
+
+.consultation-fee {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.consultation-fee-label {
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  margin-bottom: 0.25rem;
+}
+
+.book-button {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1.5px solid var(--primary-color);
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+}
+
+.book-button:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 240px 1fr;
+    gap: 1.5rem;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-panel {
+    position: static;
+    margin-bottom: 1.5rem;
+  }
+
+  .doctor-card {
+    flex-direction: column;
+  }
+
+  .doctor-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .doctor-info {
+    align-items: center;
+  }
+
+  .consultation-badges {
+    justify-content: center;
+  }
+
+  .doctor-actions {
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .book-button {
+    max-width: 200px;
+  }
+}
+
+/* Optional: Add a subtle divider in mobile view */
+@media (max-width: 768px) {
+  .doctor-actions {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+  }
+}
+
+/* Filter Styles */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.radio-label,
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.radio-input,
+.checkbox-input {
+  margin-right: 0.75rem;
+  cursor: pointer;
+}
+
+.radio-text,
+.checkbox-text {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+/* Sort Options */
+.sort-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sort-option {
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sort-option:hover {
+  background-color: var(--background-color);
+}
+
+.sort-option.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.doctor-card {
+  animation: fadeIn 0.3s ease;
+} 
